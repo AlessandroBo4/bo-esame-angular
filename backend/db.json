@@ -1,0 +1,79 @@
+{
+  "corsi": [
+    {
+      "id": 1,
+      "nome": "Yoga per Principianti",
+      "descrizione": "Un corso ideale per chi desidera approcciarsi allo yoga e migliorare flessibilità e respirazione.",
+      "immagine": "http://localhost:3000/images/yoga_principianti.webp",
+      "istruttore": "Giulia Rossi",
+      "durata": 60,
+      "capacita_massima": 15
+    },
+    { 
+      "id": 2,
+      "nome": "Pilates Avanzato",
+      "descrizione": "Un allenamento avanzato per tonificare il corpo e migliorare la postura.",
+      "immagine": "http://localhost:3000/images/pilates_avanzato.webp",
+      "istruttore": "Marco Bianchi",
+      "durata": 50,
+      "capacita_massima": 10
+    },
+    {
+      "id": 3,
+      "nome": "Cardio Fit",
+      "descrizione": "Lezioni ad alta intensità per migliorare la resistenza cardiovascolare.",
+      "immagine": "http://localhost:3000/images/cardio_fit.webp",
+      "istruttore": "Sara Verdi",
+      "durata": 45,
+      "capacita_massima": 20
+    },
+    {
+      "id": 4,
+      "nome": "Zumba",
+      "descrizione": "Divertiti ballando e bruciando calorie con ritmi latini e internazionali.",
+      "immagine": "http://localhost:3000/images/zumba.webp",
+      "istruttore": "Luca Neri",
+      "durata": 50,
+      "capacita_massima": 25
+    },
+    {
+      "id": 5,
+      "nome": "CrossFit Essentials",
+      "descrizione": "Allenamento funzionale che combina forza e resistenza.",
+      "immagine": "http://localhost:3000/images/crossfit_essentials.webp",
+      "istruttore": "Andrea Gallo",
+      "durata": 60,
+      "capacita_massima": 12
+    },
+    {
+      "id": 6,
+      "nome": "HIIT Training",
+      "descrizione": "High-Intensity Interval Training per bruciare grassi in modo veloce ed efficace.",
+      "immagine": "http://localhost:3000/images/hiit_training.webp",
+      "istruttore": "Elena Russo",
+      "durata": 30,
+      "capacita_massima": 18
+    },
+    {
+      "id": 7,
+      "nome": "Body Pump",
+      "descrizione": "Allenamento con pesi per tonificare i muscoli di tutto il corpo.",
+      "immagine": "http://localhost:3000/images/body_pump.webp",
+      "istruttore": "Alessandra Conti",
+      "durata": 60,
+      "capacita_massima": 15
+    },
+    {
+      "id": 8,
+      "nome": "Stretching e Mobilità",
+      "descrizione": "Migliora la flessibilità e rilassa i muscoli dopo l'allenamento.",
+      "immagine": "http://localhost:3000/images/stretching_mobilita.webp",
+      "istruttore": "Francesca Moretti",
+      "durata": 40,
+      "capacita_massima": 20
+    }
+  ],
+  "autore": {
+    "nome": "Alessandro Bo"
+  }
+}

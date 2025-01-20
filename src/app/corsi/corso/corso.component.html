@@ -1,0 +1,23 @@
+<div class="card h-100 text-bg-dark mb-3">
+  <img
+    src="{{ corso().immagine }}"
+    alt="{{ corso().nome }}"
+    class="card-img-top"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ corso().nome }}</h5>
+    <p class="istruttore">{{ corso().istruttore }}</p>
+    <p class="card-text">
+      {{ corso().descrizione }}
+    </p>
+    <img src="duration.svg" />
+    <p>{{ corso().durata }} min</p>
+    <div class="card-footer">
+      <button class="btn btn-primary">Prenota</button>
+      <div class="capacita">
+        <img src="people.svg" />
+        {{ corso().capacita_massima }}
+      </div>
+    </div>
+  </div>
+</div>
