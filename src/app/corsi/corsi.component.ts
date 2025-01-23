@@ -2,7 +2,6 @@ import { Component, DestroyRef } from '@angular/core';
 import { OnInit, signal, inject } from '@angular/core';
 import { CorsoComponent } from './corso/corso.component';
 import { type Corso } from './corso/corso.model';
-import { HttpClient } from '@angular/common/http';
 import { CorsiService } from './corsi.service';
 
 @Component({
@@ -13,11 +12,10 @@ import { CorsiService } from './corsi.service';
   styleUrl: './corsi.component.css',
 })
 export class CorsiComponent implements OnInit {
-  private HttpClient = inject(HttpClient);
-  private destroyRef = inject(DestroyRef);
   private corsiService = inject(CorsiService);
+  private destroyRef = inject(DestroyRef);
 
-  corsi = signal<Corso[] | undefined>(undefined);
+  corsi = this.corsiService.corsi;
   isFetching = signal(true);
 
   ngOnInit() {

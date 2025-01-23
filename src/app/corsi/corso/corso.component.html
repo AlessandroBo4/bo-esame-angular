@@ -1,23 +1,47 @@
 <div class="card h-100 text-bg-dark mb-3">
-  <img
+  @if(isAmministratore==false) {<img
     src="{{ corso().immagine }}"
     alt="{{ corso().nome }}"
     class="card-img-top"
-  />
+  />}
   <div class="card-body">
     <h5 class="card-title">{{ corso().nome }}</h5>
     <p class="istruttore">{{ corso().istruttore }}</p>
     <p class="card-text">
       {{ corso().descrizione }}
     </p>
-    <img src="duration.svg" />
-    <p>{{ corso().durata }} min</p>
-    <div class="card-footer">
-      <button class="btn btn-primary">Prenota</button>
+    @if(isAmministratore==false){
+
+    <p>Durata e disponibilità</p>
+    <div class="info">
+      <div class="duration">
+        <img src="duration.svg" />
+        <p>{{ corso().durata }} min</p>
+      </div>
       <div class="capacita">
         <img src="people.svg" />
-        {{ corso().capacita_massima }}
+        <p>{{ corso().capacita_massima }}</p>
       </div>
     </div>
+    <p class="iscritti">Iscritti: {{ corso().iscritti }}</p>
+    <div class="card-footer">
+      @if(isDisponibile) {
+      <p>Inserisci il tuo nome per prenotare</p>
+      <input type="text" name="nome" id="nome" [(ngModel)]="nomePrenotante" />
+      <button
+        class="btn btn-primary"
+        (click)="onPrenotazione(corso(), nomePrenotante)"
+      >
+        Prenota
+      </button>
+      } @else{
+      <button class="btn btn-primary" disabled>Prenota</button>
+      }
+    </div>
+    } @if(isAmministratore) {
+    <button (click)="onDeleteCorso(corso())" class="btn btn-danger">
+      Elimina
+    </button>
+    }
   </div>
 </div>

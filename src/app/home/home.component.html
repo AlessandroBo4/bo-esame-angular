@@ -1,1 +1,19 @@
-<h2>Home</h2>
+<header>
+  <h1>Benvenuti da AngFitness</h1>
+</header>
+
+<h2>Ecco alcuni corsi che potrebbero piacerti</h2>
+
+@if(isFetching()) {
+<div class="messaggio">Caricamento corsi...</div>
+} @else {
+<div class="row">
+  @if(corsi().length>0) { @for(corso of corsi() ?? []; track corso.id) {
+  <div class="col-12 col-md-4 col-lg-3 mb-5 ps-3 pe-3">
+    <app-corso [corso]="corso"></app-corso>
+  </div>
+  } } @else {
+  <div class="messaggio">Nessun corso</div>
+  }
+</div>
+}

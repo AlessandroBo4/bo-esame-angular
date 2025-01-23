@@ -1,13 +1,15 @@
 <h2>I nostri Corsi</h2>
 
 @if(isFetching()) {
-<div class="caricamento">Caricamento corsi...</div>
+<div class="messaggio">Caricamento corsi...</div>
 } @else {
 <div class="row">
-  @for(corso of corsi() ?? []; track corso.id) {
+  @if(corsi().length>0) { @for(corso of corsi() ?? []; track corso.id) {
   <div class="col-12 col-md-4 col-lg-3 mb-5 ps-3 pe-3">
     <app-corso [corso]="corso"></app-corso>
   </div>
+  } } @else {
+  <div class="messaggio">Nessun corso</div>
   }
 </div>
 }

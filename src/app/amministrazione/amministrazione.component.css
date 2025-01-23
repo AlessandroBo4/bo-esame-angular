@@ -1,0 +1,20 @@
+h2,
+h3 {
+  text-align: center;
+  margin: 1.2em;
+}
+
+.messaggio {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.amministrazione-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lista-corsi,
+.lista-prenotazioni {
+  width: 45%;
+}

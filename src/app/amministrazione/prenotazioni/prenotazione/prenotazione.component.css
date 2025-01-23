@@ -1,0 +1,14 @@
+.card {
+  text-align: center;
+}
+
+.nome-prenotante
+{
+  color:rgb(255, 203, 58)
+}
+
+.data-prenotazione
+{
+  font-weight: bold;
+  display: block;
+}

@@ -1,0 +1,14 @@
+h3 {
+  text-align: center;
+}
+
+form {
+  width: 500px;
+  border-radius: 25px;
+  padding: 2em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-container {
+  text-align: center;
+}

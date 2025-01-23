@@ -1,0 +1,14 @@
+@if(isFetching()) {
+<div class="messaggio">Caricamento prenotazioni...</div>
+} @else {
+<div class="row">
+  @if(prenotazioni().length>0) { @for(prenotazione of prenotazioni() ?? [];
+  track $index) {
+  <div class="col-12 col-md-4 col-lg-6 mb-5 ps-3 pe-3">
+    <app-prenotazione [prenotazione]="prenotazione"></app-prenotazione>
+  </div>
+  } } @else {
+  <div class="messaggio">Nessuna prenotazione</div>
+  }
+</div>
+}

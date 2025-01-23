@@ -1,0 +1,30 @@
+.container {
+  max-width: 60%;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 25px;
+  padding: 2em;
+}
+
+h2 {
+  color: #444;
+}
+
+.cta {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cta a {
+  text-decoration: none;
+  background: #007bff;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+.cta a:hover {
+  background: #0056b3;
+}
