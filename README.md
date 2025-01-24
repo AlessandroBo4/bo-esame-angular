@@ -1,27 +1,25 @@
-# AngFitness
+# Documentazione AngFitness - Bo Alessandro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+In questa documentazione descrivo le scelte implementative che ritengo necessarie di spiegazione che ho adottato nello sviluppo dell'applicazione.
 
-## Development server
+## Gestione dell'autenticazione tramite Signal pubblico
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Per gestire il controllo dell'autenticazione, ho deciso di utilizzare un signal pubblico all'interno del service dedicato. In questo modo tutti i componenti possono accedere facilmente allo stato di autenticazione, senza bisogno di sottoscrizioni aggiuntive.
 
-## Code scaffolding
+Questa scelta mi permette di modificare dinamicamente la vista dei componenti in base allo stato dell'utente. Ad esempio, nel componente che rappresenta un corso, la vista si adatta: se l'utente è autenticato, mostro il pulsante "Elimina" e nascondo i dettagli non necessari, mentre nella lista corsi mostro tutti i dettagli di ogni corso.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Generazione degli ID per nuove entità
 
-## Build
+Per generare un nuovo ID durante la creazione di corsi o prenotazioni, verifico l'ultimo ID presente nell'array corrispondente. Lo converto in numero, lo incremento e poi lo riconverto in stringa, poiché il formato stringa è necessario per altre operazioni, come gli aggiornamenti dei dati. Questo metodo mi assicura che gli ID siano sempre univoci e coerenti con il formato richiesto.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Mostrare solo 4 corsi nella pagina Home
 
-## Running unit tests
+Nella pagina Home, per visualizzare solo quattro corsi, utilizzo una query che limita i risultati. Questo approccio mi consente di recuperare solo i dati necessari dal backend, migliorando le performance.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Validazione del form di creazione corsi
 
-## Running end-to-end tests
+Per il form di creazione corsi, utilizzo regex definite in funzioni esterne alla classe principale. Queste funzioni vengono poi impiegate come validator nei FormControl.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Controllo della capacità massima nel servizio dei corsi
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Nel service che gestisce i corsi, ho implementato una logica per controllare la capacità massima dei corsi. Quando il numero di iscritti raggiunge la capacità massima, aggiorno lo stato del corso in modo che il pulsante "Prenota" venga disabilitato e l'input bloccato. Questo aggiornamento avviene in tempo reale poichè controllato ad ogni incremento di iscritti, evitando che l'utente possa effettuare un'iscrizione di troppo prima che il pulsante venga disabilitato.
