@@ -90,27 +90,6 @@
     }
   ],
   "prenotazioni": [
-    {
-      "id": 1,
-      "id_corso_prenotato": "2",
-      "nome_corso_prenotato": "Pilates Avanzato",
-      "nome_prenotante": "casaacs",
-      "data_prenotazione": "2025-01-23T17:14:30.182Z"
-    },
-    {
-      "id": 2,
-      "id_corso_prenotato": "2",
-      "nome_corso_prenotato": "Pilates Avanzato",
-      "nome_prenotante": "vdzvd",
-      "data_prenotazione": "2025-01-23T17:14:44.667Z"
-    },
-    {
-      "id": 1,
-      "id_corso_prenotato": "2",
-      "nome_corso_prenotato": "Pilates Avanzato",
-      "nome_prenotante": "ddas",
-      "data_prenotazione": "2025-01-23T17:15:25.072Z"
-    }
   ],
   "autore": {
     "nome": "Alessandro Bo"

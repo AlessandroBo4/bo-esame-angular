@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { type Prenotazione } from './prenotazione/prenotazione.model';
 import type { Corso } from '../../corsi/corso/corso.model';
+import { CorsiService } from '../../corsi/corsi.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import type { Corso } from '../../corsi/corso/corso.model';
 export class PrenotazioniService {
   private HttpClient = inject(HttpClient);
   prenotazioni = signal<Prenotazione[]>([]);
+  private corsiService = inject(CorsiService);
 
   private fetchPrenotazioni(url: string, errorMessage: string) {
     return this.HttpClient.get<Prenotazione[]>(url).pipe(
@@ -30,7 +32,7 @@ export class PrenotazioniService {
   }
 
   addPrenotazione(prenotazione: Prenotazione) {
-    return this.HttpClient.post<Prenotazione>(
+    this.HttpClient.post<Prenotazione>(
       'http://localhost:3000/prenotazioni',
       prenotazione
     )
@@ -50,7 +52,9 @@ export class PrenotazioniService {
           ]);
           alert('Prenotazione avvenuta con successo!');
         },
-        error: (err) => console.error('Errore durante la POST:', err),
+        error: (err) => {
+          console.error('Errore durante la POST:', err);
+        },
       });
   }
 
@@ -72,6 +76,6 @@ export class PrenotazioniService {
       data_prenotazione: dataPrenotazione,
     };
 
-    this.addPrenotazione(prenotazione);
+    return prenotazione;
   }
 }

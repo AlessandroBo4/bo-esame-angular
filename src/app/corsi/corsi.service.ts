@@ -44,25 +44,28 @@ export class CorsiService {
     );
   }
 
-  isDisponibile(corso: Corso) {
-    if (corso.iscritti === corso.capacita_massima) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   aumentaIscritti(corso: Corso) {
-    this.corsi.update((corsi) =>
-      corsi.map((c) =>
-        c.id === corso.id ? { ...c, iscritti: c.iscritti + 1 } : c
-      )
-    );
-    return this.HttpClient.patch('http://localhost:3000/corsi/' + corso.id, {
-      iscritti: corso.iscritti + 1,
+    const nuovoNumeroIscritti = corso.iscritti + 1;
+    const nuovaDisponibilita = nuovoNumeroIscritti < corso.capacita_massima;
+
+    this.HttpClient.patch(`http://localhost:3000/corsi/${corso.id}`, {
+      iscritti: nuovoNumeroIscritti,
+      disponibilita: nuovaDisponibilita,
     }).subscribe({
       next: (response) => {
         console.log('Corso aggiornato con successo:', response);
+
+        this.corsi.update((corsi) =>
+          corsi.map((c) =>
+            c.id === corso.id
+              ? {
+                  ...c,
+                  iscritti: nuovoNumeroIscritti,
+                  disponibilita: nuovaDisponibilita,
+                }
+              : c
+          )
+        );
       },
       error: (error) => {
         console.error("Errore durante l'aggiornamento del corso:", error);
@@ -77,32 +80,5 @@ export class CorsiService {
 
   addCorso(corso: Corso) {
     return this.HttpClient.post('http://localhost:3000/corsi', corso);
-  }
-
-  getCorsoById(id: number) {
-    return this.HttpClient.get<Corso>(`http://localhost:3000/corsi/${id}`)
-      .pipe(
-        catchError((error) => {
-          console.log(error);
-          return throwError(() => {
-            new Error(`Impossibile ottenere il corso con ID: ${id}`);
-          });
-        })
-      )
-      .subscribe({
-        next: (data) => {
-          return data;
-        },
-      });
-  }
-
-  getCorsiHome() {
-    alert('ciao');
-    const corsiHome = [];
-    for (let i = 0; i < 4; i++) {
-      corsiHome[i] = this.getCorsoById(i);
-    }
-
-    return corsiHome;
   }
 }

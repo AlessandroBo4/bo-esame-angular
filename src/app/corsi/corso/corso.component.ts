@@ -15,10 +15,11 @@ export class CorsoComponent {
   corsiService = inject(CorsiService);
   prenotazioniService = inject(PrenotazioniService);
   nomePrenotante: string = '';
-
   corso = input.required<Corso>();
-  isAmministratore = this.corsiService.isAdminPageOpen;
+
   isDisponibile: boolean = true;
+
+  isAmministratore = this.corsiService.isAdminPageOpen;
 
   onDeleteCorso(corso: Corso) {
     this.corsiService.deleteCorso(corso).subscribe({
@@ -36,7 +37,14 @@ export class CorsoComponent {
       alert('Devi inserire un nome per effettuare la prenotazione');
     } else {
       this.nomePrenotante = '';
-      this.prenotazioniService.creaPrenotazione(corso, nomePrenotante);
+      const nuovaPrenotazione = this.prenotazioniService.creaPrenotazione(
+        corso,
+        nomePrenotante
+      );
+
+      this.prenotazioniService.addPrenotazione(nuovaPrenotazione);
+
+      this.corsiService.aumentaIscritti(corso);
     }
   }
 }
