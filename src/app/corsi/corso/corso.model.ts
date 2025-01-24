@@ -1,5 +1,5 @@
 export interface Corso {
-  id: number;
+  id: string;
   nome: string;
   descrizione: string;
   immagine: string;

@@ -3,11 +3,14 @@
 <div class="amministrazione-container">
   <div class="lista-corsi">
     <h3>Lista Corsi</h3>
+
+    <app-new-corso></app-new-corso>
+
     @if(isFetching()) {
     <div class="messaggio">Caricamento corsi...</div>
     } @else {
     <div class="row">
-      @if(corsi().length>0) { @for(corso of corsi() ?? []; track corso.id) {
+      @if(corsi().length>0) { @for(corso of corsi(); track corso.id) {
       <div class="col-12 col-md-4 col-lg-6 mb-5 ps-3 pe-3">
         <app-corso [corso]="corso"></app-corso>
       </div>
@@ -22,4 +25,3 @@
     <app-prenotazioni></app-prenotazioni>
   </div>
 </div>
-<!-- <app-new-corso></app-new-corso> -->

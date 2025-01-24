@@ -7,9 +7,9 @@
       "immagine": "http://localhost:3000/images/yoga_principianti.webp",
       "istruttore": "Giulia Rossi",
       "durata": 60,
-      "iscritti": 0,
+      "iscritti": 5,
       "capacita_massima": 5,
-      "disponibilita": true
+      "disponibilita": false
     },
     {
       "id": "2",
@@ -87,9 +87,62 @@
       "iscritti": 0,
       "capacita_massima": 10,
       "disponibilita": true
+    },
+    {
+      "id": "9",
+      "nome": "Corsa",
+      "descrizione": "Questo corso è stato creato tramite il form presente in amministrazione",
+      "immagine": "https://www.fisioterapiavco.it/wp-content/uploads/2020/12/Distance-Runner-STACK.jpg",
+      "istruttore": "Alessandro Bo",
+      "durata": 60,
+      "iscritti": 1,
+      "capacita_massima": 5,
+      "disponibilita": true
     }
   ],
   "prenotazioni": [
+    {
+      "id": "1",
+      "id_corso_prenotato": "1",
+      "nome_corso_prenotato": "Yoga per Principianti",
+      "nome_prenotante": "Mario Rossi",
+      "data_prenotazione": "2025-01-24T11:12:17.993Z"
+    },
+    {
+      "id": "2",
+      "id_corso_prenotato": "1",
+      "nome_corso_prenotato": "Yoga per Principianti",
+      "nome_prenotante": "Giorgio Neri",
+      "data_prenotazione": "2025-01-24T11:12:23.051Z"
+    },
+    {
+      "id": "3",
+      "id_corso_prenotato": "1",
+      "nome_corso_prenotato": "Yoga per Principianti",
+      "nome_prenotante": "Lucia Bianchi",
+      "data_prenotazione": "2025-01-24T11:12:27.766Z"
+    },
+    {
+      "id": "4",
+      "id_corso_prenotato": "1",
+      "nome_corso_prenotato": "Yoga per Principianti",
+      "nome_prenotante": "Carlo Verdi",
+      "data_prenotazione": "2025-01-24T11:12:31.817Z"
+    },
+    {
+      "id": "5",
+      "id_corso_prenotato": "1",
+      "nome_corso_prenotato": "Yoga per Principianti",
+      "nome_prenotante": "Sara Rossi",
+      "data_prenotazione": "2025-01-24T11:12:38.326Z"
+    },
+    {
+      "id": "6",
+      "id_corso_prenotato": "9",
+      "nome_corso_prenotato": "Corsa",
+      "nome_prenotante": "Alessandro Bo",
+      "data_prenotazione": "2025-01-24T11:13:45.562Z"
+    }
   ],
   "autore": {
     "nome": "Alessandro Bo"

@@ -2,7 +2,7 @@ import { Injectable, signal, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
 import { type Prenotazione } from './prenotazione/prenotazione.model';
-import type { Corso } from '../../corsi/corso/corso.model';
+import { type Corso } from '../../corsi/corso/corso.model';
 import { CorsiService } from '../../corsi/corsi.service';
 
 @Injectable({
@@ -63,13 +63,13 @@ export class PrenotazioniService {
 
     const idPrenotazione =
       prenotazioni.length > 0
-        ? Math.max(...prenotazioni.map((p) => p.id)) + 1
+        ? Math.max(...prenotazioni.map((p) => Number(p.id))) + 1
         : 1;
 
     const dataPrenotazione = new Date().toISOString();
 
     const prenotazione: Prenotazione = {
-      id: idPrenotazione,
+      id: idPrenotazione.toString(),
       id_corso_prenotato: corso.id,
       nome_corso_prenotato: corso.nome,
       nome_prenotante: nomePrenotante,

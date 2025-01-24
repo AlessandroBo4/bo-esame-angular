@@ -2,13 +2,25 @@ h3 {
   text-align: center;
 }
 
-form {
-  width: 500px;
+dialog {
+  width: 50%;
   border-radius: 25px;
   padding: 2em;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btn-container {
+  margin: 2em 0;
   text-align: center;
+}
+
+.sfondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  overflow: auto;
 }

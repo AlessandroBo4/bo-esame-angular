@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { NewCorsoComponent } from './new-corso/new-corso.component';
 import { CorsiService } from '../corsi/corsi.service';
-import { type Corso } from '../corsi/corso/corso.model';
 import { CorsoComponent } from '../corsi/corso/corso.component';
 import { PrenotazioniComponent } from './prenotazioni/prenotazioni.component';
 

@@ -79,6 +79,51 @@ export class CorsiService {
   }
 
   addCorso(corso: Corso) {
-    return this.HttpClient.post('http://localhost:3000/corsi', corso);
+    this.HttpClient.post<Corso>('http://localhost:3000/corsi', corso)
+      .pipe(
+        catchError((error) => {
+          console.error("Errore durante l'aggiunta del corso:", error);
+          return throwError(
+            () => new Error("Errore durante l'aggiunta del corso")
+          );
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.corsi.update((corsi) => [...corsi, corso]);
+          alert('Aggiunta del corso avvenuta con successo!');
+        },
+        error: (err) => {
+          console.error('Errore durante la POST:', err);
+        },
+      });
+  }
+
+  creaCorso(
+    nome: string,
+    descrizione: string,
+    istruttore: string,
+    durata: number,
+    capacita_massima: number,
+    immagine: string
+  ) {
+    const corsi = this.corsi();
+
+    const idCorso =
+      corsi.length > 0 ? Math.max(...corsi.map((c) => Number(c.id))) + 1 : 1;
+
+    const corso: Corso = {
+      id: idCorso.toString(),
+      nome: nome,
+      descrizione: descrizione,
+      immagine: immagine,
+      istruttore: istruttore,
+      durata: durata,
+      iscritti: 0,
+      capacita_massima: capacita_massima,
+      disponibilita: true,
+    };
+
+    return corso;
   }
 }

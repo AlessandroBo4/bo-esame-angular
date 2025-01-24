@@ -1,0 +1,127 @@
+<div class="btn-container">
+  <button class="btn btn-primary" (click)="onCreaCorso()">Crea corso</button>
+</div>
+
+@if(staCreandoCorso) {
+<div class="sfondo">
+  <dialog open>
+    <form [formGroup]="creaCorsoForm" (ngSubmit)="onSubmit()">
+      <h2
+        class="class=text-center text-success font-weight-bold my-4 border-bottom border-dark"
+      >
+        Crea nuovo corso
+      </h2>
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nome"
+          placeholder="Nome del corso"
+          formControlName="nome"
+        />
+        @if(isNomeValid) {
+        <p class="text-danger">
+          (obbligatorio) Il nome può contenere solo lettere (no caratteri
+          speciali)
+        </p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="descrizione" class="form-label">Descrizione</label>
+        <textarea
+          class="form-control"
+          id="descrizione"
+          placeholder="Descrizione del corso (min 10, max 100 caratteri)"
+          formControlName="descrizione"
+        ></textarea>
+        @if (isDescrizioneValid) {
+        <p class="text-danger">
+          (obbligatorio) La descrizione deve essere di minimo 10 e massimo 100
+          caratteri
+        </p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="istruttore" class="form-label">Istruttore</label>
+        <input
+          type="istruttore"
+          class="form-control"
+          id="istruttore"
+          placeholder="Nome e cognome dell'istruttore"
+          formControlName="istruttore"
+        />
+        @if (isIstruttoreValid) {
+        <p class="text-danger">
+          (obbligatorio) Il nome dell'istruttore può contenere solo lettere (no
+          caratteri speciali)
+        </p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="durata" class="form-label">Durata</label>
+        <input
+          type="number"
+          class="form-control"
+          id="durata"
+          placeholder="Durata del corso (min)"
+          formControlName="durata"
+        />
+        @if (isDurataValid) {
+        <p class="text-danger">
+          (obbligatorio) La durata deve essere di minimo 10 e massimo 60 minuti
+        </p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="capacitaMax" class="form-label">Capacità massima</label>
+        <input
+          type="number"
+          class="form-control"
+          id="capacitaMax"
+          placeholder="Numero massimo di partecipanti"
+          formControlName="capacitaMax"
+        />
+        @if (isCapacitaMaxValid) {
+        <p class="text-danger">
+          (obbligatorio) La capacità deve essere di minimo 5 e massimo 10
+          persone
+        </p>
+        }
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Immagine (link esterno)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="image"
+          placeholder="es: https://example.com/image.jpg"
+          formControlName="immagine"
+        />
+        @if (isImmagineValid) {
+        <p class="text-danger">
+          (obbligatorio) Inserisci un URL immagine valido
+        </p>
+        }
+      </div>
+
+      @if(isSubmitted==false) {
+      <p class="text-danger">Compila tutti i campi del form correttamente</p>
+      }
+
+      <div class="btn-container">
+        <button
+          type="button"
+          class="btn btn-danger rounded-pill m-1"
+          (click)="onClose()"
+        >
+          Chiudi
+        </button>
+        <button type="submit" class="btn btn-success rounded-pill m-1">
+          Crea
+        </button>
+      </div>
+    </form>
+  </dialog>
+</div>
+}

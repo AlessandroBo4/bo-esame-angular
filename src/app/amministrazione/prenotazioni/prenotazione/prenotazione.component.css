@@ -2,13 +2,11 @@
   text-align: center;
 }
 
-.nome-prenotante
-{
-  color:rgb(255, 203, 58)
+.nome-prenotante {
+  color: rgb(255, 203, 58);
 }
 
-.data-prenotazione
-{
+.data-prenotazione {
   font-weight: bold;
   display: block;
 }
